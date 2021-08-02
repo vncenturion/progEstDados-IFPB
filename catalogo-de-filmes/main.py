@@ -1,5 +1,8 @@
 ########################################
 # instanciando a Plataforma de Streaming com o nome desejado
+from PlataformaStreaming import PlataformaStreaming
+from Filme import Filme
+
 netflix = PlataformaStreaming('Netflix')
 
 netflix.cadastrarFilme(Filme(1,'Stuart Little',5.0))

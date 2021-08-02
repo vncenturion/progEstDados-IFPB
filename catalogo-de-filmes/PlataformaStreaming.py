@@ -1,3 +1,4 @@
+from Filme import Filme
 class FilmeInexistenteException(Exception):
   ### lançada toda vez que uma tentativa de busca de um filme pelo id resulte em um resultado não encontrado no catálogo
   def __init__(self,message):
@@ -46,7 +47,7 @@ class PlataformaStreaming:
       except ValueError:
         print("O valor para nota informado deve ser do tipo real")
 
-  def cadastrarFilme( self, filme: Filme ):
+  def cadastrarFilme(self, filme: Filme ):
     f = 0
     for f in self.catalogo:
       if f.id == filme.id:
@@ -55,14 +56,19 @@ class PlataformaStreaming:
     print("{} cadastrado!".format(filme.titulo))
   
   def pesquisaFilme(self, id):
-    try:
-      for f in self.catalogo:
+    f = 0
+    contador=0
+    for f in self.catalogo:
+      
+      try:
         if f.id == id:
           return f
         else:
-          raise FilmeInexistenteException("Id não encontrado!")
-    except FilmeInexistenteException as cee:
-      print (cee)
+          contador+=1
+          if contador == len(self.catalogo):
+            raise FilmeInexistenteException("Id não encontrado!")
+      except FilmeInexistenteException as cee:
+        print (cee)
 
   def listarFilmes(self):
     print("Filmes cadastrados:")
@@ -87,7 +93,7 @@ class PlataformaStreaming:
   def menuPrincipal(self):
     print()
     print('--------------------')
-    print(netflix.titulo)
+    print(self.titulo)
     print('--------------------')
     print('(r) Reajustar preço')
     print('(a) Avaliar filme')
@@ -97,3 +103,6 @@ class PlataformaStreaming:
     print('(s) Sair')
     print('---------------------')
     return
+
+    def opcoesMenu(self, opcao):
+      chos

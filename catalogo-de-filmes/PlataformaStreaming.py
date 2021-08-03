@@ -93,7 +93,7 @@ class PlataformaStreaming:
   def menuPrincipal(self):
     print()
     print('--------------------')
-    print(self.titulo)
+    print(" "+self.titulo)
     print('--------------------')
     print('(r) Reajustar preço')
     print('(a) Avaliar filme')

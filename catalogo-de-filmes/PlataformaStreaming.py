@@ -9,7 +9,7 @@ class PlataformaStreaming:
     self.__titulo = titulo
     self.catalogo = []
 
-### inserção de getter/setter
+  ### inserção de getter/setter
   @property
   def titulo(self):
     return self.__titulo
@@ -18,7 +18,7 @@ class PlataformaStreaming:
   def titulo(self, novoTitulo):
     self.__titulo = novoTitulo 
 
-### metodos
+  ### metodos
 
   def validaID(self): #evitar utilização de ID não INT
     while(True):
@@ -104,5 +104,71 @@ class PlataformaStreaming:
     print('---------------------')
     return
 
-    def opcoesMenu(self, opcao):
-      chos
+  def opcoesMenu(self, opcao):
+    ### REAJUSTAR PRECO
+    if opcao == 'r': 
+      idFilme = int(self.validaID()) #Metodo de validação de entrada de ID
+      filme = self.pesquisaFilme(idFilme)
+      if filme != None:
+        print('Titulo:', filme.titulo)
+        print('Preco anterior:', filme.preço)
+        novoPreco = float(self.validaPreco()) # exceção para preço em float no metodo validaPreço
+        self.reajustarPreco(idFilme, novoPreco)
+      return True
+   
+    ### AVALIAR FILME
+    elif opcao == 'a': 
+      idFilme = int(self.validaID())
+      filme = self.pesquisaFilme(idFilme)
+      if filme == None:
+        print(f'Filme com id {idFilme} não está cadastrado')
+      else:
+        print('Titulo:', filme.titulo)
+        nota = float(self.validaNota()) # exceção para nota em float
+        print("Nota: {} atribuída".format(nota))
+        self.avaliarFilme(idFilme, nota)
+      return True
+
+    ### LISTAR FILMES NO CATALOGO
+    elif opcao == 'l':
+      print()
+      self.listarFilmes()
+      return True
+
+    ### CADASTRAR NOVO FILME
+    elif opcao == 'c':
+      idFilme = int(self.validaID())
+      filme = self.pesquisaFilme(idFilme) #verifica se o ID já existe
+      if (filme == None): #caso não existe procede ao cadastro
+        titulo = input('Título do filme para cadastro:')
+        preço = float(self.validaPreco())
+        self.cadastrarFilme(Filme(idFilme, titulo, preço))
+      else: #caso o id já exista, informa ao usuário
+        print("ID já existente!")
+        print()
+      self.listarFilmes()
+      return True
+
+    ### PESQUISAR
+    elif opcao == 'p':
+      idFilme = self.validaID()
+      filme = self.pesquisaFilme(idFilme)
+      if filme != None:
+        print('Titulo:', filme.titulo)
+        print('Preço:', filme.preço)
+        print('Nota:', filme.nota)
+      return True
+
+    ### SAIR
+    elif opcao == 's':
+      sair = input("Deseja sair (s/n)?: ")
+      sair = sair.lower()
+      if sair == 's':
+        return False
+      else:
+        return True
+      
+    ### OPÇÃO INVALIDA
+    else:
+      print("Opção invalida!")
+      return True

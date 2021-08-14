@@ -44,6 +44,7 @@ class Vacina (ABC):
   def country(self):
     pass
 
+
 class Oxford(Vacina):
   __LABORATORIO = 'AstraZeneca     '
   def __init__(self, numDoses, intervalo, tecnologia, eficacia):  
@@ -103,7 +104,7 @@ class Sinovac(Vacina):
     return self.__voluntários
 
   @voluntários.setter
-  def volutários(self, novaNumero):
+  def volutários(self, novoNumero):
     self.__voluntários = novoNumero
 
   def country(self): #implementação do metodo abstrado

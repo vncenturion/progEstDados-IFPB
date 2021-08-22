@@ -1,5 +1,6 @@
 from ListaEncadeada import ListaEncadeada
 from ListaDupla import ListaDupla
+from ListaCircular import ListaCircular
 from Node import Node
 
 def juntaLista(lista_aux,lista_a: 'ListaEncadeada', lista_b: 'ListaEncadeada'):
@@ -63,7 +64,8 @@ juntaLista(lista6,lista4,lista5)
 lista4.imprimirLista()
 lista5.imprimirLista()
 lista6.imprimirLista()
-'''
+
+
 ### LISTAS DUPLAS ENCADEADAS
 
 lista1 = ListaDupla()
@@ -113,4 +115,20 @@ lista1.imprimirLista()
 lista1.removerElemento2(3)
 lista1.imprimirLista()
 
+'''
+
+lista1=ListaCircular()
+lista1.inserirFinal(1)
+lista1.inserirFinal(2)
+lista1.inserirInicio(0)
+lista1.inserirFinal(3)
+lista1.inserirInicio(-1)
+print("print list")
+lista1.imprimirLista()
+print("tamanho: "+str(lista1.tamanho))
+lista1.removerElemento(0)
+lista1.removerElemento(2)
+print("print list")
+lista1.imprimirLista()
+print("tamanho: "+str(lista1.tamanho))
 print('fim')

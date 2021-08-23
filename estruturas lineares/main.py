@@ -65,6 +65,7 @@ lista4.imprimirLista()
 lista5.imprimirLista()
 lista6.imprimirLista()
 
+'''
 
 ### LISTAS DUPLAS ENCADEADAS
 
@@ -131,4 +132,28 @@ lista1.removerElemento(2)
 print("print list")
 lista1.imprimirLista()
 print("tamanho: "+str(lista1.tamanho))
+
+'''
+
 print('fim')
+print("\npalindromo")
+listaPalindromo=ListaDupla()
+palindromo=str(input("Digite uma palavra ou frase qualquer: "))
+palindromo=palindromo.casefold()
+for letra in palindromo:
+    if letra != " ":
+        listaPalindromo.inserirFinal(letra)
+
+listaPalindromo.imprimirLista()
+listaPalindromo.imprimirListaRev()
+noCabeca = listaPalindromo.cabeca
+noCauda = listaPalindromo.cauda
+while noCabeca is not None:
+    if noCabeca.carga == noCauda.carga:
+        noCabeca=noCabeca.prox
+        noCauda=noCauda.ant
+    else:
+        print("não é palindromo!")
+        break
+
+print(listaPalindromo.ehPalindromo())

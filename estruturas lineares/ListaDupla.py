@@ -175,3 +175,15 @@ class ListaDupla():
 
     def listaVazia(self):
         return self.cabeca is None
+
+    def ehPalindromo(self):
+        noCabeca = self.cabeca
+        noCauda = self.cauda
+        while noCabeca is not None:
+            if noCabeca.carga == noCauda.carga:
+                noCabeca = noCabeca.prox
+                noCauda = noCauda.ant
+            else:
+                print("não é palindromo!")
+                return False
+        return True

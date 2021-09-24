@@ -1,12 +1,12 @@
-from TabelaMac import TabelaMac
+from HashTable import HashTable
 class Switch:
-    def __init__(self, nome, marca, mac, ip, portas):
+    def __init__(self, nome, marca, mac, num_portas, ip=None):
         self.__nome = nome
         self.__marca = marca
         self.__mac = mac
+        self.__num_portas = int(num_portas)
         self.__ip = ip
-        self.__portas = portas
-        self.__tabela = TabelaMac(portas)
+        self.__tabelaMac = HashTable(num_portas)
 
     @property
     def nome(self):
@@ -41,29 +41,22 @@ class Switch:
         self.__mac = novoMac
 
     @property
-    def portas(self):
-        return self.__portas
+    def num_portas(self):
+        return self.__num_portas
 
-    @portas.setter
-    def portas(self, novoPortas):
-        self.__portas = novoPortas
+    @num_portas.setter
+    def num_portas(self, novoPortas):
+        self.__num_portas = novoPortas
 
     @property
     def tabela(self):
-        return self.__tabela
-
-    '''
-    def adicionarMAC(self, macHOST): #tabela hash
-        chave = hash(macHOST)
-        indexHASH = chave % (self.portas)
-        self.tabela.data[indexHASH] = macHOST
-        return
-    '''
+        return self.__tabelaMac
 
     def __str__(self):
         return f'''
-Nome/modelo: {self.nome}
+Nome: {self.nome}
 Marca: {self.marca}
 MAC do equipamento: {self.mac}
 IP do equipamento: {self.ip}
-Número de portas: {self.portas} '''
+Número de portas: {self.num_portas}
+'''

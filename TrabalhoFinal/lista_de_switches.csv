@@ -1,0 +1,7 @@
+switch 1,cisco,11:11:11:11:11:11,4
+switch 2,huawei,11:11:11:11:11:12,8
+switch 3,cisco,11:11:11:11:11:13,8
+switch 4,huawei,11:11:11:ff:aa:14,8
+switch 5,cisco,11:ff:aa:00:11:15,4
+switch 6,huawei,11:11:00:11:ff:f6,8
+switch 7,cisco,11:00:11:ff:11:f7,4
